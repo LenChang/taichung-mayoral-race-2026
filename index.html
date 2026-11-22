@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 台中市長 武將能力表｜江啟臣 vs 何欣純</title>
+  <meta name="description" content="仿三國志武將卡，以相同六項標準比較 2026 台中市長候選人江啟臣與何欣純，附加減分依據、執政時勢與來源。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=31">
+</head>
+<body>
+  <div class="card-container">
+    <div class="card-border">
+      <div class="card-content">
+
+        <nav class="tabs" role="tablist">
+          <a class="tab" role="tab" href="#compare" data-view="compare">兩雄對陣</a>
+          <a class="tab tab-KMT" role="tab" href="#jiang" data-view="jiang">江啟臣</a>
+          <a class="tab tab-DPP" role="tab" href="#ho" data-view="ho">何欣純</a>
+          <div class="layout-switch" role="group" aria-label="版面">
+            <button type="button" data-layout="auto">自動<span class="detected" id="detectedLayout"></span></button>
+            <button type="button" data-layout="desktop">桌面</button>
+            <button type="button" data-layout="mobile">手機</button>
+          </div>
+          <a class="star-link" id="starLink" target="_blank" rel="noopener noreferrer" title="覺得有幫助的話，歡迎到 GitHub Repo 幫我點顆星星！">★ GitHub Repo Star</a>
+        </nav>
+
+        <section class="view" id="view-compare" role="tabpanel">
+          <header class="compare-header">
+            <div class="compare-kicker">2026 台中市長選舉・<span id="electionDate"></span> 投票</div>
+            <h1 class="compare-title">
+              <span class="vs-name party-text-KMT" id="vsLeft"></span>
+              <span class="vs-mark">對</span>
+              <span class="vs-name party-text-DPP" id="vsRight"></span>
+            </h1>
+          </header>
+
+          <div class="duel-cards" id="duelCards"></div>
+
+          <div class="compare-grid">
+            <div class="compare-radar" id="compareRadar"></div>
+            <div class="compare-table-wrap">
+              <table class="compare-table" id="compareTable"></table>
+              <div class="compare-legend" id="compareLegend"></div>
+            </div>
+          </div>
+
+          <dialog class="benchmark-dialog" id="benchmarkDialog" aria-labelledby="benchmarkTitle">
+            <div class="benchmark-dialog-head">
+              <h2 class="section-title" id="benchmarkTitle">對照組　誠信 A 長什麼樣子？</h2>
+              <button type="button" class="benchmark-close" id="benchmarkClose" aria-label="關閉">×</button>
+            </div>
+            <div class="benchmark-dialog-body">
+              <p class="benchmark-intro" id="benchmarkIntro"></p>
+              <p class="benchmark-rule" id="benchmarkRule"></p>
+              <ul class="benchmark-rubric" id="benchmarkRubric"></ul>
+              <div class="benchmark-table-wrap">
+                <table class="benchmark-table" id="benchmarkTable"></table>
+              </div>
+            </div>
+          </dialog>
+
+          <section class="policy-section" id="policy-compare">
+            <h2 class="section-title">政見可行性　未來四年做得到嗎？</h2>
+            <div class="policy-premise" id="policyPremise"></div>
+            <div class="policy-compare" id="policyCompare"></div>
+            <div class="compare-split">
+              <div>
+                <h3 class="policy-subtitle">結論</h3>
+                <ul class="eras-summary" id="policyConclusion"></ul>
+              </div>
+              <div>
+                <h3 class="policy-subtitle">政見資料來源</h3>
+                <ul class="general-sources" id="policySources"></ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="eras-section">
+            <h2 class="section-title">時勢　八年執政格局（2018–2026）</h2>
+            <div class="eras-legend">
+              <span class="legend-item"><i class="party-DPP"></i>民進黨</span>
+              <span class="legend-item"><i class="party-KMT"></i>國民黨（含藍白多數）</span>
+            </div>
+            <div class="eras-timeline" id="compareEras"></div>
+          </section>
+
+          <div class="compare-split">
+            <div class="verdict">
+              <h2 class="section-title">評斷</h2>
+              <ul class="eras-summary" id="verdictList"></ul>
+            </div>
+            <div class="era-conclusion">
+              <h2 class="section-title">時勢解讀</h2>
+              <ul class="eras-summary" id="eraConclusion"></ul>
+            </div>
+          </div>
+
+          <div class="compare-split">
+          <section class="polls-section">
+            <h2 class="section-title">民調走勢</h2>
+            <div class="poll-average" id="pollAverage"></div>
+            <div class="polls-table-wrap">
+              <table class="polls-table" id="pollsTable"></table>
+            </div>
+            <p class="polls-note">◆ 標記為政黨或其友好團體委託的民調，數字可能偏向委託方。</p>
+          </section>
+
+          <section class="general-sources-section">
+            <h2 class="section-title">綜合資料庫</h2>
+            <ul class="general-sources" id="generalSources"></ul>
+          </section>
+          </div>
+
+          <section class="sources-section">
+            <h2 class="section-title">參考資料來源（各項依據）</h2>
+            <div class="sources-columns" id="candidateSources"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-jiang" role="tabpanel"></section>
+        <section class="view" id="view-ho" role="tabpanel"></section>
+
+        <footer class="card-footer">
+          <div class="disclaimer" id="disclaimer"></div>
+          <div class="last-updated">更新日期：<span id="lastUpdated"></span></div>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <template id="candidateTemplate">
+    <header class="card-header">
+      <div class="header-info">
+        <div class="faction-period">
+          <span class="faction" data-field="faction"></span>
+          <span class="period" data-field="period"></span>
+        </div>
+        <div class="titles">
+          <div class="title" data-field="title"></div>
+          <div class="role" data-field="currentRole"></div>
+        </div>
+      </div>
+      <div class="name-seal-container">
+        <div class="courtesy-name" data-field="courtesyName"></div>
+        <h1 class="general-name" data-field="name"></h1>
+        <div class="seal" data-field="seal"></div>
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <div class="left-column">
+        <div class="portrait-container">
+          <div class="portrait-placeholder">
+            <img class="portrait-img" alt="">
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h2 class="section-title">特技</h2>
+          <div class="skills-container" data-slot="skills"></div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="stats-overview">
+          <div class="radar-chart-container" data-slot="radar"></div>
+          <div class="stats-bars-container" data-slot="bars"></div>
+        </div>
+
+        <div class="total-score-container">
+          <div class="grade-counts" data-slot="counts"></div>
+          <div class="total-label">綜合評等</div>
+          <div class="overall-value" data-slot="overall"></div>
+        </div>
+
+        <div class="evidence-section">
+          <h2 class="section-title">列傳與事蹟</h2>
+          <div class="evidence-container" data-slot="evidence"></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="policy-section policy-detail" data-slot="policy"></section>
+
+    <section class="eras-section">
+      <h2 class="section-title">時勢　八年執政格局（2018–2026）</h2>
+      <div class="eras-legend">
+        <span class="legend-item"><i class="party-DPP"></i>民進黨</span>
+        <span class="legend-item"><i class="party-KMT"></i>國民黨（含藍白多數）</span>
+      </div>
+      <div class="eras-timeline" data-slot="eras"></div>
+      <ul class="eras-summary" data-slot="eraSummary"></ul>
+      <ul class="sources-list" data-slot="eraSources"></ul>
+    </section>
+  </template>
+
+  <script src="data/shared.js?v=17"></script>
+  <script src="data/jiang.js?v=30"></script>
+  <script src="data/ho.js?v=17"></script>
+  <script src="data/policy.js?v=27"></script>
+  <script src="app.js?v=29"></script>
+</body>
+</html>
